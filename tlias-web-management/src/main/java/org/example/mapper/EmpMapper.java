@@ -3,6 +3,7 @@ package org.example.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.example.pojo.Emp;
 import org.example.pojo.EmpQueryParam;
@@ -42,6 +43,7 @@ public interface EmpMapper {
     /*
     * 新增员工基本信息
     * */
+    @Options(useGeneratedKeys = true,keyProperty = "id")
     @Insert(value = "insert into  emp(username, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time) " +
             "values (#{username},#{name},#{gender},#{phone},#{job},#{salary},#{image},#{entryDate},#{deptId},#{createTime},#{updateTime})")
     void insert(Emp emp);
