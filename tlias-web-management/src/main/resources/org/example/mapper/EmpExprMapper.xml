@@ -8,8 +8,8 @@
     <insert id="insertBatch">
         insert into emp_expr(emp_id, begin, end, company, job)
         values
-            <foreach collection="expeList" item="expr" separator=",">
-                (#{expr.emp_id},#{expr.begin},#{expr.end},#{expr.company},#{expr.job})
+            <foreach collection="exprList" item="expr" separator=",">
+                (#{expr.empId},#{expr.begin},#{expr.end},#{expr.company},#{expr.job})
             </foreach>
     </insert>
     <!--批量删除员工的工作经历信息-->

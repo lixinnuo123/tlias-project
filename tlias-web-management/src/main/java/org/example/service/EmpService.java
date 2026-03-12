@@ -4,7 +4,6 @@ import org.example.pojo.Emp;
 import org.example.pojo.EmpQueryParam;
 import org.example.pojo.PageResult;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface EmpService {
@@ -23,6 +22,16 @@ public interface EmpService {
     * 批量删除员工信息
     * */
     void delete(List<Integer> ids);
+
+    /*
+    * 根据ID查询员工信息
+    * */
+    Emp getInfo(Integer id);
+
+    /*
+    * 修改员工数据
+    * */
+    void update(Emp emp);
 
     /*
     分页查询的方法
