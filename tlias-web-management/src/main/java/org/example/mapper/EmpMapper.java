@@ -7,6 +7,7 @@ import org.example.pojo.EmpQueryParam;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 /*
 * 员工信息
@@ -41,7 +42,7 @@ public interface EmpMapper {
     * 新增员工基本信息
     * */
     @Options(useGeneratedKeys = true,keyProperty = "id")
-    @Insert(value = "insert into  emp(username, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time) " +
+    @Insert("insert into  emp(username, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time) " +
             "values (#{username},#{name},#{gender},#{phone},#{job},#{salary},#{image},#{entryDate},#{deptId},#{createTime},#{updateTime})")
     void insert(Emp emp);
 
@@ -59,4 +60,16 @@ public interface EmpMapper {
     * 修改员工基本信息
     * */
     void updateById(Emp emp);
+
+    /*
+    * 统计员工职位人数
+    * */
+    @MapKey("pos")
+    List<Map<String,Object>> countEmpJobData();
+
+    /*
+    * 统计人员性别人数
+    * */
+    @MapKey("name")
+    List<Map<String, Object>> countEmpGenderData();
 }
