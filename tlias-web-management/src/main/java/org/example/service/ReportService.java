@@ -10,7 +10,7 @@ public interface ReportService {
 
     List<Map<String, Object>> getGenderData();
 
-    List<Map<String, Object>> getStudentCountData();
+    JobOption getStudentCountData();
 
     List<Map<String, Object>> getStudentDegreeData();
 }

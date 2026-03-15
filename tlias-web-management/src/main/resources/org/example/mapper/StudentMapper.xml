@@ -79,7 +79,7 @@
                 when 5 then '硕士'
                 when 6 then '博士'
                 else '其他'end
-                ) degree,
+                ) name,
             count(*) value
         from student group by degree order by value;
     </select>

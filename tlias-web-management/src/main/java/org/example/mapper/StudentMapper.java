@@ -35,7 +35,7 @@ public interface StudentMapper {
     /*
     * 统计学员学历信息
     * */
-    @MapKey("degree")
+    @MapKey("name")
     List<Map<String, Object>> getStudentDegreeData();
 }
 

@@ -36,8 +36,14 @@ public class ReportServiceimpl implements ReportService {
     }
 
     @Override
-    public List<Map<String, Object>> getStudentCountData() {
-        return studentMapper.countStudentData();
+    public JobOption getStudentCountData() {
+        //调用 Mapper 接口，获取统计数据
+        List<Map<String, Object>> list = studentMapper.countStudentData();
+        //组装结果并返回
+        List<Object> clazzList = list.stream().map(dataMap -> dataMap.get("name")).toList();
+        List<Object> dataList = list.stream().map(dataMap -> dataMap.get("value")).toList();
+
+        return new JobOption(clazzList, dataList);
     }
 
     @Override

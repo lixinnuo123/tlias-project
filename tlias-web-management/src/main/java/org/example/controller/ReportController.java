@@ -45,7 +45,7 @@ public class ReportController {
     @GetMapping("/studentCountData")
     public Result getStudentCountData(){
         log.info("统计班级人数");
-        List<Map<String,Object>> studentCountList = reportService.getStudentCountData();
+        JobOption studentCountList = reportService.getStudentCountData();
         return Result.success(studentCountList);
     }
 
