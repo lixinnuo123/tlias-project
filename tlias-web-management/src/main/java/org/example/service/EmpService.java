@@ -39,8 +39,4 @@ public interface EmpService {
     * */
     LoginInfo login(Emp emp);
 
-    /*
-    分页查询的方法
-    * */
-/*    PageResult<Emp> page(Integer page, Integer pageSize, String name, Integer gender, LocalDate begin, LocalDate end);*/
 }

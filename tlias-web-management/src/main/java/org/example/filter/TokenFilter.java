@@ -1,16 +1,17 @@
 package org.example.filter;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwt;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.example.utils.CurrentHolder;
 import org.example.utils.JwtUtils;
 
 import java.io.IOException;
 
-/*
 @Slf4j
 @WebFilter(urlPatterns = "/*")
 public class TokenFilter implements Filter{
@@ -43,7 +44,11 @@ public class TokenFilter implements Filter{
 
         //5.如果token存在，校验令牌，如果校验失败则返回错误信息（响应401状态码）
         try {
-            JwtUtils.parseJWT(token);
+            Claims claims = JwtUtils.parseJWT(token);
+            Integer id = Integer.valueOf(claims.get("id").toString());
+            CurrentHolder.setCurrentId(id);//存入
+            log.info("当前登录员工的id为：{}，将其存入ThreadLocal",id);
+
         } catch (Exception e) {
             log.info("令牌非法，响应401");
             response.setStatus(401);
@@ -54,5 +59,7 @@ public class TokenFilter implements Filter{
         log.info("令牌合法，放行");
         filterChain.doFilter(request,response);
 
+        //7.删除ThreadLocal中的数据
+        CurrentHolder.remove();
     }
-}*/
+}

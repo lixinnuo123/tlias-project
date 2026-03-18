@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.anno.Log;
 import org.example.pojo.Dept;
 import org.example.pojo.Result;
 import org.example.service.DeptService;
@@ -49,6 +50,7 @@ public class DeptController {
     }*/
 
     //方式三：如果请求参数的名称和形参名称一致，可以省略@RequestParam注解
+    @Log
     @DeleteMapping("/depts")
     public Result delete(Integer id){
         /*System.out.println("根据ID删除部门："+id);*/
@@ -61,6 +63,7 @@ public class DeptController {
     * 新增部门
     * */
     //@RequestBody注解：将请求体中的JSON数据，映射为Java对象
+    @Log
     @PostMapping("/depts")
     public Result post(@RequestBody Dept dept){
         /*System.out.println("新增部门："+dept);*/
@@ -73,6 +76,7 @@ public class DeptController {
      * 根据ID查询部门,返回数据
      * */
     //传输路径参数，使用@PathVariable注解
+    @Log
     @GetMapping("/depts/{id}")
     public Result getInfo(@PathVariable Integer id) {
         /*System.out.println("根据ID查询部门数据：" + id);*/
@@ -84,6 +88,7 @@ public class DeptController {
     /*
     * 修改部门
     * */
+    @Log
     @PutMapping("/depts")
     public Result update(@RequestBody Dept dept){
         /*System.out.println("修改部门："+dept);*/
