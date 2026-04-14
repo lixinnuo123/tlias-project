@@ -13,7 +13,7 @@ import org.example.utils.JwtUtils;
 import java.io.IOException;
 
 @Slf4j
-//@WebFilter(urlPatterns = "/*")
+@WebFilter(urlPatterns = "/*")
 public class TokenFilter implements Filter{
 
 

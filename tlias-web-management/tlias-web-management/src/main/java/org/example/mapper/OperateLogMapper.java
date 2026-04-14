@@ -4,6 +4,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.example.pojo.OperateLog;
 
+import java.util.List;
+
 @Mapper
 public interface OperateLogMapper {
 
@@ -12,4 +14,5 @@ public interface OperateLogMapper {
             "values (#{operateEmpId}, #{operateTime}, #{className}, #{methodName}, #{methodParams}, #{returnValue}, #{costTime});")
     public void insert(OperateLog log);
 
+    public List<OperateLog> page();
 }

@@ -14,4 +14,5 @@ public class OperateLog {
     private String returnValue; //操作方法返回值
     private Long costTime; //操作耗时
 
+    private String operateEmpName;
 }

@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 //定义拦截器
 @Slf4j
-//@Component
+@Component
 public class TokenInterceptor  implements HandlerInterceptor {
 
     @Override
